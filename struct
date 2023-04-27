@@ -1,0 +1,118 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct inf_locacao
+{
+    char loc_letra_corredor[10], loc_coluna[10], loc_fileira[10];
+};
+struct inf_material
+{
+    char mat_codigo[20], mat_nome[50], mat_descricao[300];
+};
+struct inf_fornecerdor
+{
+    char for_nome[50], for_endereco[50], for_numero, for_bairro[20], for_cidade[20], for_estado[20], for_cnpj[50], for_telefone[50];
+    int for_codigo, for_cep;
+    struct inf_locacao locacao;
+    struct inf_material material;
+    
+} fornecedor[];
+
+int main(void)
+{
+    int i = 0;
+
+    //////////////////////////////////////////////////////////////////////////
+    printf("\t\tFORNEDOR!\n");
+
+    printf("\nInforme o CNPJ do Fornecedor: ");
+    fflush(stdin);
+    gets(fornecedor[i].for_cnpj);
+
+    printf("\nInforme o Nome da Razao Social: ");
+    fflush(stdin);
+    gets(fornecedor[i].for_nome);
+
+    printf("\nInforme o codigo do Cliente: ");
+    fflush(stdin);
+    scanf("%d", &fornecedor[i].for_codigo);
+
+    printf("\nInforme o telefone para contato: ");
+    fflush(stdin);
+    gets(fornecedor[i].for_telefone);
+
+    printf("\nInforme o Endereco: ");
+    fflush(stdin);
+    gets(fornecedor[i].for_endereco);
+
+    printf("\nInforme o numero do Estabelecimento: ");
+    fflush(stdin);
+    scanf("%d", &fornecedor[i].for_numero);
+
+    printf("\nInforme o Bairro: ");
+    fflush(stdin);
+    gets(fornecedor[i].for_bairro);
+
+    printf("\nInforme o CEP: ");
+    fflush(stdin);
+    scanf("%d", &fornecedor[i].for_cep);
+
+    printf("\nInforme a Cidade: ");
+    fflush(stdin);
+    gets(fornecedor[i].for_cidade);
+
+    printf("\nInforme o Estado: ");
+    fflush(stdin);
+    gets(fornecedor[i].for_estado);
+
+    system("cls");
+    //////////////////////////////////////////////////////////////////////////
+    printf("\t\tMATERIAL!");
+
+    printf("\nInforme o codigo do Produto: ");
+    fflush(stdin);
+    gets(fornecedor[i].material.mat_codigo);
+
+    printf("\nInforme o nome do Produto: ");
+    fflush(stdin);
+    gets(fornecedor[i].material.mat_nome);
+
+    printf("\nInforme a descricao do Produto: ");
+    fflush(stdin);
+    gets(fornecedor[i].material.mat_descricao);
+    system("cls");
+    //////////////////////////////////////////////////////////////////////////
+    printf("\t\tLOCACAO!");
+
+    printf("\nInforme a letra do corredor do produto: ");
+    fflush(stdin);
+    gets(fornecedor[i].locacao.loc_letra_corredor);
+
+    printf("\nInforme a coluna do produto: ");
+    fflush(stdin);
+    gets(fornecedor[i].locacao.loc_coluna);
+
+    printf("\nInforme a fileira do corredor: ");
+    fflush(stdin);
+    gets(fornecedor[i].locacao.loc_fileira);
+
+    system("cls");
+    //////////////////////////////////////////////////////////////////////////
+
+    printf("\t\tDADOS FORNECEDOR\n");
+    printf("\nCNPJ: %s", fornecedor[i].for_cnpj);
+    printf("\nRazao Social: %s", fornecedor[i].for_nome);
+    printf("\nCodigo Cliente: %d", fornecedor[i].for_codigo);
+    printf("\nTelefone: %s", fornecedor[i].for_telefone);
+    printf("\nEndereco: %s, %d - %s", fornecedor[i].for_endereco, fornecedor[i].for_numero, fornecedor[i].for_bairro);
+    printf("\nCEP: %d", fornecedor[i].for_cep);
+    printf("\nCidade/Estado: %s - %s\n\n", fornecedor[i].for_cidade, fornecedor[i].for_estado);
+
+    printf("\t\tDADOS PRODUTO E LOCACAO\n");
+    printf("\nCodigo: %s", fornecedor[i].material.mat_codigo);
+    printf("\nNome do Produto: %s", fornecedor[i].material.mat_nome);
+    printf("\nDescricao do Produto: %s", fornecedor[i].material.mat_descricao);
+    printf("\nCorredor/Coluna-Fileira do produto: %s/%s-%s\n\n", fornecedor[i].locacao.loc_letra_corredor, fornecedor[i].locacao.loc_coluna, fornecedor[i].locacao.loc_fileira);
+
+    return 0;
+}
